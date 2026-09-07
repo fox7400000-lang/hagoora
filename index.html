@@ -169,7 +169,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .hint {
-            font-size: 14px;
+            font-size: 15px;
             color: #ffb6c1;
             margin-bottom: 12px;
             font-weight: 700;
@@ -229,7 +229,6 @@
 
     <div class="main-content" id="mainContent">
         <div class="avatar-box"><span>🐣💗 😘</span></div>
-        <!-- تمت إضافة "أم صوفيا" هنا -->
         <h1>إلى هجورة قلبي (أم صوفيا)</h1>
         
         <div class="message-box">
@@ -237,13 +236,14 @@
         </div>
         
         <div class="music-card">
-            <p class="hint">اسمعي الأغنية دي عشالك.. عمال تحلي في عيني 🎵</p>
+            <!-- تم تعديل النص هنا بالضبط زي ما طلبت -->
+            <p class="hint">دوسي هنا هسمعك كوبليه ليكي 😉</p>
             <button class="play-btn" id="musicBtn">تشغيل الأغنية 🤍</button>
-            <div class="audio-status" id="audioStatus">اضغطي للاستماع والاستمتاع</div>
+            <div class="audio-status" id="audioStatus">اضغطي للاستماع</div>
         </div>
     </div>
 
-    <!-- ملف الصوت الصغير والمضبوط -->
+    <!-- ملف الصوت المرفوع -->
     <audio id="loveSong" preload="auto" loop>
         <source src="6370926809_tk.mp3" type="audio/mpeg">
         متصفحك لا يدعم تشغيل الصوت.
@@ -255,7 +255,6 @@
             const lockScreen = document.getElementById('lockScreen');
             const mainContent = document.getElementById('mainContent');
             const errorMsg = document.getElementById('errorMsg');
-            const loveSong = document.getElementById('loveSong');
 
             if (pass === "10/1/2026") {
                 lockScreen.style.opacity = '0';
@@ -263,15 +262,7 @@
                 setTimeout(() => {
                     lockScreen.style.display = 'none';
                     mainContent.style.display = 'block';
-                    
-                    loveSong.play().then(() => {
-                        isPlaying = true;
-                        document.getElementById('musicBtn').textContent = "إيقاف مؤقت ⏸️";
-                        document.getElementById('audioStatus').textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
-                    }).catch(e => {
-                        console.log("Auto-play blocked, waiting for user interaction.");
-                    });
-
+                    // تم إلغاء التشغيل التلقائي تماماً بناءً على طلبك، الصوت مش هيشتغل غير لما تدوس بايدها
                 }, 500);
             } else {
                 errorMsg.style.display = 'block';
@@ -285,21 +276,21 @@
         let isPlaying = false;
         
         musicBtn.addEventListener('click', () => {
-            loveSong.play().then(() => {
-                if (!isPlaying) {
+            if (!isPlaying) {
+                loveSong.play().then(() => {
                     isPlaying = true;
-                    audioStatus.textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
+                    audioStatus.textContent = "🎶 شغال دلوقتي ❤️";
                     musicBtn.textContent = "إيقاف مؤقت ⏸️";
-                } else {
-                    loveSong.pause();
-                    isPlaying = false;
-                    audioStatus.textContent = "⏸️ متوقف مؤقتاً";
-                    musicBtn.textContent = "تشغيل الأغنية 🤍";
-                }
-            }).catch(error => {
-                console.log("Error:", error);
-                audioStatus.textContent = "⚠️ اضغطي تاني لتأكيد التشغيل";
-            });
+                }).catch(error => {
+                    console.log("Error:", error);
+                    audioStatus.textContent = "⚠️ اضغطي تاني لتأكيد التشغيل";
+                });
+            } else {
+                loveSong.pause();
+                isPlaying = false;
+                audioStatus.textContent = "⏸️ متوقف مؤقتاً";
+                musicBtn.textContent = "تشغيل الأغنية 🤍";
+            }
         });
 
         function createElements() {
