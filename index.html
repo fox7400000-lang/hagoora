@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إلى هجورة قلبي 🐣💗</title>
+    
+    <!-- الأكواد المسؤولة عن ظهور الصورة واسم الموقع عند مشاركة اللينك -->
+    <meta property="G" content="إلى هجورة قلبي 🤍">
+    <meta property="og:description" content="حاجة بسيطة ليكي يا بنوتة 😉">
+    <meta property="og:image" content="IMG-20260802-WA0029.jpg">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -134,11 +141,22 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        
         .avatar-box {
-            font-size: 40px;
-            margin-bottom: 10px;
-            animation: bounce 2s infinite;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
         }
+        .avatar-box img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: pulseGlow 2s infinite;
+        }
+
         .main-content h1 {
             color: #ffffff;
             font-size: 26px;
@@ -202,15 +220,10 @@
             from { opacity: 0; transform: scale(0.8) translateY(30px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-12px);}
-            60% {transform: translateY(-6px);}
-        }
         @keyframes pulseGlow {
             0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
-            50% { transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(255, 117, 140, 0.8)); }
-            100% { transform: scale(1.1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(255, 117, 140, 0.8)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
         }
     </style>
 </head>
@@ -228,17 +241,19 @@
     </div>
 
     <div class="main-content" id="mainContent">
-        <div class="avatar-box"><span>😘 💗 🐣</span></div>
-        <h1>إلى هجورة قلبي 
-            (أم صوفيا)</h1>
+        <!-- الصورة بتاعتكم هنا -->
+        <div class="avatar-box">
+            <img src="IMG-20260802-WA0029.jpg" alt="صورة لنا">
+        </div>
+        
+        <h1>إلى هجورة قلبي (أم صوفيا)</h1>
         
         <div class="message-box">
             <p class="message">بحبك يهجورتي 😘 💗 🐣</p>
         </div>
         
         <div class="music-card">
-            <!-- النص الجديد المطلوب بالظبط -->
-            <p class="hint">دوسي هنا هسمعك كوبليه ليكي ❣️😉</p>
+            <p class="hint">دوسي هنا هسمعك كوبليه ليكي 😉</p>
             <button class="play-btn" id="musicBtn">تشغيل الأغنية 🤍</button>
             <div class="audio-status" id="audioStatus">في انتظار الضغط للاستماع 🤍</div>
         </div>
