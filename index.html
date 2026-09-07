@@ -243,9 +243,9 @@
         </div>
     </div>
 
-    <!-- أغنية عمرو دياب - عمال تحلي في عيني -->
-    <audio id="loveSong" loop>
-        <source src="https://cdns-preview--d.dzcdn.net/stream/c-deda73229202570087a91bb4f68740c8-3.mp3" type="audio/mp3">
+    <!-- ملف الصوت المرفوع محلياً في المستودع -->
+    <audio id="loveSong" preload="auto" loop>
+        <source src="Amr Diab -- Andy So_al _ عندي دياب - عمرو (M4A_128K).m4a" type="audio/mp4">
         متصفحك لا يدعم تشغيل الصوت.
     </audio>
 
@@ -280,7 +280,10 @@
                     isPlaying = true;
                     audioStatus.textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
                     musicBtn.textContent = "إيقاف مؤقت ⏸️";
-                }).catch(error => { console.log("التشغيل تطلب تفاعل", error); });
+                }).catch(error => {
+                    console.log("Error:", error);
+                    audioStatus.textContent = "⚠️ اضغطي تاني لتأكيد التشغيل";
+                });
             } else {
                 loveSong.pause();
                 isPlaying = false;
