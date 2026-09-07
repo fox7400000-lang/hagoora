@@ -228,23 +228,24 @@
     </div>
 
     <div class="main-content" id="mainContent">
-        <div class="avatar-box"><span>🐣💗 😘</span></div>
-        <h1>إلى هجورة قلبي (أم صوفيا)</h1>
+        <div class="avatar-box"><span>😘 💗 🐣</span></div>
+        <h1>إلى هجورة قلبي 
+            (أم صوفيا)</h1>
         
         <div class="message-box">
-            <p class="message">بحبك يهجورتي 🐣💗 😘</p>
+            <p class="message">بحبك يهجورتي 😘 💗 🐣</p>
         </div>
         
         <div class="music-card">
-            <!-- تم تعديل النص هنا بالضبط زي ما طلبت -->
-            <p class="hint">دوسي هنا هسمعك كوبليه ليكي 😉</p>
+            <!-- النص الجديد المطلوب بالظبط -->
+            <p class="hint">دوسي هنا هسمعك كوبليه ليكي ❣️😉</p>
             <button class="play-btn" id="musicBtn">تشغيل الأغنية 🤍</button>
-            <div class="audio-status" id="audioStatus">اضغطي للاستماع</div>
+            <div class="audio-status" id="audioStatus">في انتظار الضغط للاستماع 🤍</div>
         </div>
     </div>
 
     <!-- ملف الصوت المرفوع -->
-    <audio id="loveSong" preload="auto" loop>
+    <audio id="loveSong" preload="none" loop>
         <source src="6370926809_tk.mp3" type="audio/mpeg">
         متصفحك لا يدعم تشغيل الصوت.
     </audio>
@@ -262,7 +263,6 @@
                 setTimeout(() => {
                     lockScreen.style.display = 'none';
                     mainContent.style.display = 'block';
-                    // تم إلغاء التشغيل التلقائي تماماً بناءً على طلبك، الصوت مش هيشتغل غير لما تدوس بايدها
                 }, 500);
             } else {
                 errorMsg.style.display = 'block';
@@ -279,7 +279,7 @@
             if (!isPlaying) {
                 loveSong.play().then(() => {
                     isPlaying = true;
-                    audioStatus.textContent = "🎶 شغال دلوقتي ❤️";
+                    audioStatus.textContent = "🎶 شغال دلوقتي 😉";
                     musicBtn.textContent = "إيقاف مؤقت ⏸️";
                 }).catch(error => {
                     console.log("Error:", error);
