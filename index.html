@@ -31,7 +31,6 @@
             top: 0;
             left: 0;
             pointer-events: none;
-            backdrop-filter: blur(4px);
         }
         .element {
             position: absolute;
@@ -243,9 +242,10 @@
         </div>
     </div>
 
-    <!-- ملف الصوت المرفوع محلياً في المستودع -->
+    <!-- استخدام رابط مباشر وآمن بصيغة MP3 لضمان التشغيل الفوري بدون مشاكل مساحة الملف أو أسماء الجيت هب -->
     <audio id="loveSong" preload="auto" loop>
-        <source src="Amr Diab -- Andy So_al _ عندي دياب - عمرو (M4A_128K).m4a" type="audio/mp4">
+        <source src="https://cdns.store/download/Amr%20Diab%20--%20Andy%20So_al.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         متصفحك لا يدعم تشغيل الصوت.
     </audio>
 
@@ -255,6 +255,7 @@
             const lockScreen = document.getElementById('lockScreen');
             const mainContent = document.getElementById('mainContent');
             const errorMsg = document.getElementById('errorMsg');
+            const loveSong = document.getElementById('loveSong');
 
             if (pass === "10/1/2026") {
                 lockScreen.style.opacity = '0';
@@ -262,6 +263,16 @@
                 setTimeout(() => {
                     lockScreen.style.display = 'none';
                     mainContent.style.display = 'block';
+                    
+                    // محاولة تشغيل الأغنية أوتوماتيكياً فور فتح القفل
+                    loveSong.play().then(() => {
+                        isPlaying = true;
+                        document.getElementById('musicBtn').textContent = "إيقاف مؤقت ⏸️";
+                        document.getElementById('audioStatus').textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
+                    }).catch(e => {
+                        console.log("Auto-play prevented:", e);
+                    });
+
                 }, 500);
             } else {
                 errorMsg.style.display = 'block';
@@ -307,5 +318,4 @@
         setInterval(createElements, 160);
     </script>
 </body>
-    </html>
-    
+</html>
