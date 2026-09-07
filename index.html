@@ -124,7 +124,7 @@
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(35px);
             -webkit-backdrop-filter: blur(35px);
-            padding: 45px 30px;
+            padding: 40px 25px;
             border-radius: 40px;
             box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
             text-align: center;
@@ -135,28 +135,28 @@
             animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .avatar-box {
-            font-size: 70px;
-            margin-bottom: 15px;
+            font-size: 40px;
+            margin-bottom: 10px;
             animation: bounce 2s infinite;
         }
         .main-content h1 {
             color: #ffffff;
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 15px;
             font-weight: 900;
             text-shadow: 0 2px 15px rgba(255, 117, 140, 0.5);
         }
         .message-box {
             background: linear-gradient(135deg, rgba(255, 117, 140, 0.25), rgba(255, 182, 193, 0.15));
             border: 2px solid rgba(255, 117, 140, 0.5);
-            padding: 25px;
-            border-radius: 25px;
-            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 22px;
+            margin-bottom: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .message {
             color: #ffffff;
-            font-size: 24px;
+            font-size: 22px;
             line-height: 1.6;
             font-weight: 900;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -164,23 +164,23 @@
         .music-card {
             background: rgba(0, 0, 0, 0.25);
             border: 1.5px solid rgba(255, 255, 255, 0.2);
-            padding: 22px;
-            border-radius: 25px;
+            padding: 18px;
+            border-radius: 22px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .hint {
-            font-size: 15px;
+            font-size: 14px;
             color: #ffb6c1;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
         .play-btn {
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
             border: none;
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 50px;
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 900;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
@@ -192,9 +192,9 @@
             box-shadow: 0 12px 30px rgba(255, 117, 140, 0.6);
         }
         .audio-status {
-            font-size: 13px;
+            font-size: 12px;
             color: #d1d5db;
-            margin-top: 12px;
+            margin-top: 10px;
             font-weight: 700;
         }
 
@@ -204,8 +204,8 @@
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-15px);}
-            60% {transform: translateY(-8px);}
+            40% {transform: translateY(-12px);}
+            60% {transform: translateY(-6px);}
         }
         @keyframes pulseGlow {
             0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
@@ -228,11 +228,12 @@
     </div>
 
     <div class="main-content" id="mainContent">
-        <div class="avatar-box"><span>🐣💗</span></div>
-        <h1>إلى هجورة قلبي</h1>
+        <div class="avatar-box"><span>🐣💗 😘</span></div>
+        <!-- تمت إضافة "أم صوفيا" هنا -->
+        <h1>إلى هجورة قلبي (أم صوفيا)</h1>
         
         <div class="message-box">
-            <p class="message">بحبك يهجورتي 🐣💗</p>
+            <p class="message">بحبك يهجورتي 🐣💗 😘</p>
         </div>
         
         <div class="music-card">
@@ -242,10 +243,9 @@
         </div>
     </div>
 
-    <!-- استخدام رابط مباشر وآمن بصيغة MP3 لضمان التشغيل الفوري بدون مشاكل مساحة الملف أو أسماء الجيت هب -->
+    <!-- ملف الصوت الصغير والمضبوط -->
     <audio id="loveSong" preload="auto" loop>
-        <source src="https://cdns.store/download/Amr%20Diab%20--%20Andy%20So_al.mp3" type="audio/mpeg">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="6370926809_tk.mp3" type="audio/mpeg">
         متصفحك لا يدعم تشغيل الصوت.
     </audio>
 
@@ -264,13 +264,12 @@
                     lockScreen.style.display = 'none';
                     mainContent.style.display = 'block';
                     
-                    // محاولة تشغيل الأغنية أوتوماتيكياً فور فتح القفل
                     loveSong.play().then(() => {
                         isPlaying = true;
                         document.getElementById('musicBtn').textContent = "إيقاف مؤقت ⏸️";
                         document.getElementById('audioStatus').textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
                     }).catch(e => {
-                        console.log("Auto-play prevented:", e);
+                        console.log("Auto-play blocked, waiting for user interaction.");
                     });
 
                 }, 500);
@@ -286,32 +285,32 @@
         let isPlaying = false;
         
         musicBtn.addEventListener('click', () => {
-            if (!isPlaying) {
-                loveSong.play().then(() => {
+            loveSong.play().then(() => {
+                if (!isPlaying) {
                     isPlaying = true;
                     audioStatus.textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
                     musicBtn.textContent = "إيقاف مؤقت ⏸️";
-                }).catch(error => {
-                    console.log("Error:", error);
-                    audioStatus.textContent = "⚠️ اضغطي تاني لتأكيد التشغيل";
-                });
-            } else {
-                loveSong.pause();
-                isPlaying = false;
-                audioStatus.textContent = "⏸️ متوقف مؤقتاً";
-                musicBtn.textContent = "تشغيل الأغنية 🤍";
-            }
+                } else {
+                    loveSong.pause();
+                    isPlaying = false;
+                    audioStatus.textContent = "⏸️ متوقف مؤقتاً";
+                    musicBtn.textContent = "تشغيل الأغنية 🤍";
+                }
+            }).catch(error => {
+                console.log("Error:", error);
+                audioStatus.textContent = "⚠️ اضغطي تاني لتأكيد التشغيل";
+            });
         });
 
         function createElements() {
             const bg = document.getElementById('floatingBg');
             const el = document.createElement('div');
             el.classList.add('element');
-            const symbols = ['🎀', '💗', '🐣', '✨', '💖', '🎀', '🤍', '🌸'];
+            const symbols = ['🎀', '💗', '🐣', '✨', '💖', '🎀', '🤍', '🌸', '😘'];
             el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
             el.style.left = Math.random() * 100 + 'vw';
             el.style.animationDuration = (Math.random() * 4 + 3) + 's';
-            el.style.fontSize = (Math.random() * 24 + 16) + 'px';
+            el.style.fontSize = (Math.random() * 20 + 14) + 'px';
             bg.appendChild(el);
             setTimeout(() => { el.remove(); }, 7000);
         }
