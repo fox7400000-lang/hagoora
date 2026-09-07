@@ -22,7 +22,6 @@
             position: relative;
         }
         
-        /* الخلفية المتحركة والبلور */
         .floating-bg {
             position: absolute;
             width: 100%;
@@ -32,12 +31,12 @@
             top: 0;
             left: 0;
             pointer-events: none;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(4px);
         }
         .element {
             position: absolute;
             animation: floatUp 6s linear infinite;
-            opacity: 0.7;
+            opacity: 0.75;
         }
         @keyframes floatUp {
             0% { transform: translateY(105vh) scale(0.5) rotate(0deg); opacity: 0; }
@@ -45,19 +44,18 @@
             100% { transform: translateY(-10vh) scale(1.4) rotate(360deg); opacity: 0; }
         }
 
-        /* شاشة الباسورد الفخمة */
         .lock-screen {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             padding: 45px 30px;
             border-radius: 35px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
             text-align: center;
             max-width: 400px;
             width: 90%;
             z-index: 20;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .lock-icon {
@@ -73,7 +71,7 @@
         }
         .lock-screen p {
             color: #d1d5db;
-            font-size: 13px;
+            font-size: 14px;
             margin-bottom: 25px;
             line-height: 1.6;
         }
@@ -81,8 +79,8 @@
             width: 100%;
             padding: 14px;
             border-radius: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
             text-align: center;
             font-size: 18px;
@@ -92,7 +90,7 @@
             transition: border-color 0.3s;
         }
         .lock-screen input:focus {
-            border-color: #f6d365;
+            border-color: #ff758c;
         }
         .lock-screen input::placeholder {
             color: rgba(255, 255, 255, 0.4);
@@ -122,57 +120,59 @@
             font-weight: 700;
         }
 
-        /* المحتوى الرئيسي الخرافي بعد فتح الباسورد */
         .main-content {
             display: none;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(30px);
-            padding: 50px 30px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            padding: 45px 30px;
             border-radius: 40px;
-            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
             text-align: center;
             max-width: 440px;
             width: 90%;
             z-index: 10;
-            border: 2px solid rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .avatar-box {
-            font-size: 65px;
+            font-size: 70px;
             margin-bottom: 15px;
             animation: bounce 2s infinite;
         }
         .main-content h1 {
-            color: #d63384;
-            font-size: 30px;
-            margin-bottom: 15px;
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 20px;
             font-weight: 900;
-            text-shadow: 0 2px 10px rgba(214, 51, 132, 0.2);
+            text-shadow: 0 2px 15px rgba(255, 117, 140, 0.5);
         }
         .message-box {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 117, 140, 0.15));
-            border: 2px dashed #ff758c;
-            padding: 20px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 117, 140, 0.25), rgba(255, 182, 193, 0.15));
+            border: 2px solid rgba(255, 117, 140, 0.5);
+            padding: 25px;
+            border-radius: 25px;
             margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .message {
-            color: #2d3748;
-            font-size: 20px;
+            color: #ffffff;
+            font-size: 24px;
             line-height: 1.6;
             font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .music-card {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1.5px solid rgba(255, 117, 140, 0.3);
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            padding: 22px;
             border-radius: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .hint {
-            font-size: 14px;
-            color: #d63384;
-            margin-bottom: 12px;
+            font-size: 15px;
+            color: #ffb6c1;
+            margin-bottom: 15px;
             font-weight: 700;
         }
         .play-btn {
@@ -194,12 +194,11 @@
         }
         .audio-status {
             font-size: 13px;
-            color: #ff758c;
+            color: #d1d5db;
             margin-top: 12px;
             font-weight: 700;
         }
 
-        /* الحركات */
         @keyframes zoomIn {
             from { opacity: 0; transform: scale(0.8) translateY(30px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
@@ -218,20 +217,17 @@
 </head>
 <body>
 
-    <!-- الخلفية المتحركة بقلوب وفيونكات بلور -->
     <div class="floating-bg" id="floatingBg"></div>
 
-    <!-- شاشة الباسورد -->
     <div class="lock-screen" id="lockScreen">
         <div class="lock-icon">🔒✨</div>
-        <h2>منطقة هجورة الخاصة</h2>
-        <p>دخلي تاريخ حبنا عشان تفتحي المفاجأة الخرافية دي<br>(التنسيق: 10/1/2026)</p>
+        <h2>حاجة بسيطة ليكي يا بنوتة 🤍</h2>
+        <p>دخلي الباسورد عشان تفتحي المفاجأة البريميوم</p>
         <input type="text" id="passInput" placeholder="اكتبي الباسورد هنا...">
         <button onclick="checkPassword()">فتح المفاجأة 🤍</button>
-        <div class="error-msg" id="errorMsg">الباسورد غلط يا هجورة.. دكّري كويس!</div>
+        <div class="error-msg" id="errorMsg">الباسورد غلط.. دكّري كويس!</div>
     </div>
 
-    <!-- المحتوى الرئيسي الخرافي -->
     <div class="main-content" id="mainContent">
         <div class="avatar-box"><span>🐣💗</span></div>
         <h1>إلى هجورة قلبي</h1>
@@ -293,7 +289,6 @@
             }
         });
 
-        // إنشاء قلوب وفيونكات متحركة في الخلفية
         function createElements() {
             const bg = document.getElementById('floatingBg');
             const el = document.createElement('div');
@@ -309,4 +304,5 @@
         setInterval(createElements, 160);
     </script>
 </body>
-</html>
+    </html>
+    
