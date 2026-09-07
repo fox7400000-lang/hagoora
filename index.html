@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى هجورة قلبي 🐣💗</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* الخلفية المتحركة والبلور */
+        .floating-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            backdrop-filter: blur(3px);
+        }
+        .element {
+            position: absolute;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.5) rotate(0deg); opacity: 0; }
+            30% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) scale(1.4) rotate(360deg); opacity: 0; }
+        }
+
+        /* شاشة الباسورد الفخمة */
+        .lock-screen {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 45px 30px;
+            border-radius: 35px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            z-index: 20;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lock-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            animation: pulseGlow 2s infinite;
+        }
+        .lock-screen h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+        .lock-screen p {
+            color: #d1d5db;
+            font-size: 13px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .lock-screen input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            outline: none;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        .lock-screen input:focus {
+            border-color: #f6d365;
+        }
+        .lock-screen input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: normal;
+        }
+        .lock-screen button {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            border: none;
+            padding: 14px 25px;
+            border-radius: 18px;
+            color: #fff;
+            font-weight: 900;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(255, 117, 140, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lock-screen button:active {
+            transform: scale(0.97);
+        }
+        .error-msg {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+            font-weight: 700;
+        }
+
+        /* المحتوى الرئيسي الخرافي بعد فتح الباسورد */
+        .main-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(30px);
+            padding: 50px 30px;
+            border-radius: 40px;
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            max-width: 440px;
+            width: 90%;
+            z-index: 10;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .avatar-box {
+            font-size: 65px;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+        .main-content h1 {
+            color: #d63384;
+            font-size: 30px;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(214, 51, 132, 0.2);
+        }
+        .message-box {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 117, 140, 0.15));
+            border: 2px dashed #ff758c;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+        .message {
+            color: #2d3748;
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 900;
+        }
+        .music-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 117, 140, 0.3);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .hint {
+            font-size: 14px;
+            color: #d63384;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .play-btn {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+        .play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(255, 117, 140, 0.6);
+        }
+        .audio-status {
+            font-size: 13px;
+            color: #ff758c;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        /* الحركات */
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-8px);}
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(255, 117, 140, 0.8)); }
+            100% { transform: scale(1.1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.4)); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الخلفية المتحركة بقلوب وفيونكات بلور -->
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <!-- شاشة الباسورد -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="lock-icon">🔒✨</div>
+        <h2>منطقة هجورة الخاصة</h2>
+        <p>دخلي تاريخ حبنا عشان تفتحي المفاجأة الخرافية دي<br>(التنسيق: 10/1/2026)</p>
+        <input type="text" id="passInput" placeholder="اكتبي الباسورد هنا...">
+        <button onclick="checkPassword()">فتح المفاجأة 🤍</button>
+        <div class="error-msg" id="errorMsg">الباسورد غلط يا هجورة.. دكّري كويس!</div>
+    </div>
+
+    <!-- المحتوى الرئيسي الخرافي -->
+    <div class="main-content" id="mainContent">
+        <div class="avatar-box"><span>🐣💗</span></div>
+        <h1>إلى هجورة قلبي</h1>
+        
+        <div class="message-box">
+            <p class="message">بحبك يهجورتي 🐣💗</p>
+        </div>
+        
+        <div class="music-card">
+            <p class="hint">اسمعي الأغنية دي عشالك.. عمال تحلي في عيني 🎵</p>
+            <button class="play-btn" id="musicBtn">تشغيل الأغنية 🤍</button>
+            <div class="audio-status" id="audioStatus">اضغطي للاستماع والاستمتاع</div>
+        </div>
+    </div>
+
+    <!-- أغنية عمرو دياب - عمال تحلي في عيني -->
+    <audio id="loveSong" loop>
+        <source src="https://cdns-preview--d.dzcdn.net/stream/c-deda73229202570087a91bb4f68740c8-3.mp3" type="audio/mp3">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <script>
+        function checkPassword() {
+            const pass = document.getElementById('passInput').value.trim();
+            const lockScreen = document.getElementById('lockScreen');
+            const mainContent = document.getElementById('mainContent');
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (pass === "10/1/2026") {
+                lockScreen.style.opacity = '0';
+                lockScreen.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    lockScreen.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }, 500);
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('passInput').style.borderColor = '#ff6b6b';
+            }
+        }
+
+        const musicBtn = document.getElementById('musicBtn');
+        const loveSong = document.getElementById('loveSong');
+        const audioStatus = document.getElementById('audioStatus');
+        let isPlaying = false;
+        
+        musicBtn.addEventListener('click', () => {
+            if (!isPlaying) {
+                loveSong.play().then(() => {
+                    isPlaying = true;
+                    audioStatus.textContent = "🎶 شغال دلوقتي: عمال تحلي في عيني ❤️";
+                    musicBtn.textContent = "إيقاف مؤقت ⏸️";
+                }).catch(error => { console.log("التشغيل تطلب تفاعل", error); });
+            } else {
+                loveSong.pause();
+                isPlaying = false;
+                audioStatus.textContent = "⏸️ متوقف مؤقتاً";
+                musicBtn.textContent = "تشغيل الأغنية 🤍";
+            }
+        });
+
+        // إنشاء قلوب وفيونكات متحركة في الخلفية
+        function createElements() {
+            const bg = document.getElementById('floatingBg');
+            const el = document.createElement('div');
+            el.classList.add('element');
+            const symbols = ['🎀', '💗', '🐣', '✨', '💖', '🎀', '🤍', '🌸'];
+            el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            el.style.fontSize = (Math.random() * 24 + 16) + 'px';
+            bg.appendChild(el);
+            setTimeout(() => { el.remove(); }, 7000);
+        }
+        setInterval(createElements, 160);
+    </script>
+</body>
+</html>
